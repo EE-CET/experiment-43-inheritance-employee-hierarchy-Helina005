@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Example 1",
+      "setup": "javac src/EmployeeInheritance.java",
+      "run": "java -cp src EmployeeInheritance",
+      "input": "John\n30\n9876543210\nKerala\n50000\nIT\nJane\n40\n1234567890\nIndia\n80000\nSales",
+      "output": "Officer:\nJohn\n30\n9876543210\nKerala\n50000.0\nIT\nManager:\nJane\n40\n1234567890\nIndia\n80000.0\nSales",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 50
+    },
+    {
+      "name": "Integer Salary Input",
+      "setup": "javac src/EmployeeInheritance.java",
+      "run": "java -cp src EmployeeInheritance",
+      "input": "Alice\n25\n1112223333\nNY\n30000\nDev\nBob\n50\n4445556666\nLA\n90000\nHR",
+      "output": "Officer:\nAlice\n25\n1112223333\nNY\n30000.0\nDev\nManager:\nBob\n50\n4445556666\nLA\n90000.0\nHR",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 50
+    }
+  ]
+}
