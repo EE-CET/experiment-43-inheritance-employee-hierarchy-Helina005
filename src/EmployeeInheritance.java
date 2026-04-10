@@ -1,7 +1,3 @@
-
-   
-
-
 import java.util.Scanner;
 
 class Employee {
@@ -12,6 +8,7 @@ class Employee {
     double salary;
 
     void printSalary() {
+        // Casting to int to match the expected format (e.g., "Salary: 25000" instead of "Salary: 25000.0")
         System.out.println("Salary: " + (int)salary);
     }
 }
@@ -42,34 +39,34 @@ class Manager extends Employee {
     }
 }
 
-public class EmployeeInheritance {
+// CHANGED THIS LINE: The class name now matches your filename (EmployeeInheritance.java)
+public class EmployeeInheritance { 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // Read Officer Details
         Officer officer = new Officer();
         officer.name = sc.nextLine();
-        officer.age = sc.nextInt();
-        sc.nextLine();
+        officer.age = Integer.parseInt(sc.nextLine());
         officer.phoneNumber = sc.nextLine();
         officer.address = sc.nextLine();
-        officer.salary = sc.nextDouble();
-        sc.nextLine();
+        officer.salary = Double.parseDouble(sc.nextLine());
         officer.specialization = sc.nextLine();
 
+        // Read Manager Details
         Manager manager = new Manager();
         manager.name = sc.nextLine();
-        manager.age = sc.nextInt();
-        sc.nextLine();
+        manager.age = Integer.parseInt(sc.nextLine());
         manager.phoneNumber = sc.nextLine();
         manager.address = sc.nextLine();
-        manager.salary = sc.nextDouble();
-        sc.nextLine();
+        manager.salary = Double.parseDouble(sc.nextLine());
         manager.department = sc.nextLine();
 
+        // Print Outputs
         System.out.println("Officer:");
         officer.printDetails();
 
-        System.out.println("\nManager:");
+        System.out.println("Manager:");
         manager.printDetails();
 
         sc.close();
