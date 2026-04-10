@@ -8,58 +8,65 @@ class Employee {
     double salary;
 
     void printSalary() {
+        // Removed the (int) cast. Now it will print 50000.0 instead of 50000
         System.out.println("Salary: " + salary);
     }
 }
 
 class Officer extends Employee {
     String specialization;
+
+    void printDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println("Address: " + address);
+        printSalary();
+        System.out.println("Specialization: " + specialization);
+    }
 }
 
 class Manager extends Employee {
     String department;
+
+    void printDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println("Address: " + address);
+        printSalary();
+        System.out.println("Department: " + department);
+    }
 }
 
 public class EmployeeInheritance {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // Read Officer Details
         Officer officer = new Officer();
+        officer.name = sc.nextLine().trim();
+        officer.age = Integer.parseInt(sc.nextLine().trim());
+        officer.phoneNumber = sc.nextLine().trim();
+        officer.address = sc.nextLine().trim();
+        officer.salary = Double.parseDouble(sc.nextLine().trim());
+        officer.specialization = sc.nextLine().trim();
+
+        // Read Manager Details
         Manager manager = new Manager();
+        manager.name = sc.nextLine().trim();
+        manager.age = Integer.parseInt(sc.nextLine().trim());
+        manager.phoneNumber = sc.nextLine().trim();
+        manager.address = sc.nextLine().trim();
+        manager.salary = Double.parseDouble(sc.nextLine().trim());
+        manager.department = sc.nextLine().trim();
 
-        // Officer details
-        officer.name = sc.nextLine();
-        officer.age = Integer.parseInt(sc.nextLine());
-        officer.phoneNumber = sc.nextLine();
-        officer.address = sc.nextLine();
-        officer.salary = Double.parseDouble(sc.nextLine());
-        officer.specialization = sc.nextLine();
+        // Print Outputs
+        System.out.println("Officer:");
+        officer.printDetails();
 
-        // Manager details
-        manager.name = sc.nextLine();
-        manager.age = Integer.parseInt(sc.nextLine());
-        manager.phoneNumber = sc.nextLine();
-        manager.address = sc.nextLine();
-        manager.salary = Double.parseDouble(sc.nextLine());
-        manager.department = sc.nextLine();
-
-        // Output Officer details
-        System.out.println("Officer");
-        System.out.println("Name: " + officer.name);
-        System.out.println("Age: " + officer.age);
-        System.out.println("Phone Number: " + officer.phoneNumber);
-        System.out.println("Address: " + officer.address);
-        officer.printSalary();
-        System.out.println("Specialization: " + officer.specialization);
-
-        // Output Manager details
-        System.out.println("Manager");
-        System.out.println("Name: " + manager.name);
-        System.out.println("Age: " + manager.age);
-        System.out.println("Phone Number: " + manager.phoneNumber);
-        System.out.println("Address: " + manager.address);
-        manager.printSalary();
-        System.out.println("Department: " + manager.department);
+        System.out.println("Manager:");
+        manager.printDetails();
 
         sc.close();
     }
