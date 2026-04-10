@@ -1,42 +1,46 @@
 import java.util.Scanner;
 
+// Parent Class
 class Employee {
     String name;
     int age;
     String phoneNumber;
     String address;
-    double salary;
+    int salary;
 
+    // Method to print only the salary as requested
     void printSalary() {
-        // Using strict \n instead of println() to avoid Windows/Linux line ending conflicts
-        System.out.print("Salary: " + salary + "\n");
+        System.out.println(salary);
     }
 }
 
+// Subclass Officer inherits from Employee
 class Officer extends Employee {
     String specialization;
 
-    void printDetails() {
-        System.out.print("Name: " + name + "\n");
-        System.out.print("Age: " + age + "\n");
-        System.out.print("Phone Number: " + phoneNumber + "\n");
-        System.out.print("Address: " + address + "\n");
-        printSalary();
-        System.out.print("Specialization: " + specialization + "\n");
+    void displayOfficer() {
+        System.out.println("\nOfficer:");
+        System.out.println(name);
+        System.out.println( age);
+        System.out.println( phoneNumber);
+        System.out.println( address);
+        printSalary(); // Calling method from parent class
+        System.out.println( specialization);
     }
 }
 
+// Subclass Manager inherits from Employee
 class Manager extends Employee {
     String department;
 
-    void printDetails() {
-        System.out.print("Name: " + name + "\n");
-        System.out.print("Age: " + age + "\n");
-        System.out.print("Phone Number: " + phoneNumber + "\n");
-        System.out.print("Address: " + address + "\n");
-        printSalary();
-        // Removed the \n here! The autograder expects the output to end exactly after the department name.
-        System.out.print("Department: " + department); 
+    void displayManager() {
+        System.out.println("Manager:");
+        System.out.println( name);
+        System.out.println( age);
+        System.out.println( phoneNumber);
+        System.out.println(address);
+        printSalary(); // Calling method from parent class
+        System.out.println(department);
     }
 }
 
@@ -44,31 +48,32 @@ public class EmployeeInheritance {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Read Officer Details
-        Officer officer = new Officer();
-        officer.name = sc.nextLine().trim();
-        officer.age = Integer.parseInt(sc.nextLine().trim());
-        officer.phoneNumber = sc.nextLine().trim();
-        officer.address = sc.nextLine().trim();
-        officer.salary = Double.parseDouble(sc.nextLine().trim());
-        officer.specialization = sc.nextLine().trim();
+        // Assigning values to Officer
+        Officer off = new Officer();
+        off.name = sc.nextLine();
+        off.age = sc.nextInt();
+        sc.nextLine(); // Consume newline
+        off.phoneNumber = sc.nextLine();
+        off.address = sc.nextLine();
+        off.salary = sc.nextInt();
+        sc.nextLine(); // Consume newline
+        off.specialization = sc.nextLine();
 
-        // Read Manager Details
-        Manager manager = new Manager();
-        manager.name = sc.nextLine().trim();
-        manager.age = Integer.parseInt(sc.nextLine().trim());
-        manager.phoneNumber = sc.nextLine().trim();
-        manager.address = sc.nextLine().trim();
-        manager.salary = Double.parseDouble(sc.nextLine().trim());
-        manager.department = sc.nextLine().trim();
+        // Assigning values to Manager
+        Manager mng = new Manager();
+        mng.name = sc.nextLine();
+        mng.age = sc.nextInt();
+        sc.nextLine(); // Consume newline
+        mng.phoneNumber = sc.nextLine();
+        mng.address = sc.nextLine();
+        mng.salary = mng.salary = sc.nextInt();
+        sc.nextLine(); // Consume newline
+        mng.department = sc.nextLine();
 
-        // Print Outputs using strict line endings
-        System.out.print("Officer:\n");
-        officer.printDetails();
-
-        System.out.print("Manager:\n");
-        manager.printDetails();
-
+        // Printing Details
+        off.displayOfficer();
+        mng.displayManager();
+        
         sc.close();
     }
 }
