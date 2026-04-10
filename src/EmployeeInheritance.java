@@ -5,7 +5,7 @@ class Employee {
     int age;
     String phoneNumber;
     String address;
-    int salary;
+    double salary; // Reverted to double for the .0 decimal
 
     void printSalary() {
         System.out.println(salary);
@@ -44,29 +44,26 @@ public class EmployeeInheritance {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Officer Input
         Officer off = new Officer();
         off.name = sc.nextLine();
         off.age = sc.nextInt();
         sc.nextLine(); 
         off.phoneNumber = sc.nextLine();
         off.address = sc.nextLine();
-        off.salary = sc.nextInt();
+        off.salary = sc.nextDouble(); // Read as double
         sc.nextLine(); 
         off.specialization = sc.nextLine();
 
-        // Manager Input
         Manager mng = new Manager();
         mng.name = sc.nextLine();
         mng.age = sc.nextInt();
         sc.nextLine(); 
         mng.phoneNumber = sc.nextLine();
         mng.address = sc.nextLine();
-        mng.salary = sc.nextInt();
+        mng.salary = sc.nextDouble(); // Read as double
         sc.nextLine(); 
         mng.department = sc.nextLine();
 
-        // Output
         off.displayOfficer();
         mng.displayManager();
         
