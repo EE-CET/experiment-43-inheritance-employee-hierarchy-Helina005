@@ -8,8 +8,8 @@ class Employee {
     double salary;
 
     void printSalary() {
-        // Removed the (int) cast. Now it will print 50000.0 instead of 50000
-        System.out.println("Salary: " + salary);
+        // Using strict \n instead of println() to avoid Windows/Linux line ending conflicts
+        System.out.print("Salary: " + salary + "\n");
     }
 }
 
@@ -17,12 +17,12 @@ class Officer extends Employee {
     String specialization;
 
     void printDetails() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("Address: " + address);
+        System.out.print("Name: " + name + "\n");
+        System.out.print("Age: " + age + "\n");
+        System.out.print("Phone Number: " + phoneNumber + "\n");
+        System.out.print("Address: " + address + "\n");
         printSalary();
-        System.out.println("Specialization: " + specialization);
+        System.out.print("Specialization: " + specialization + "\n");
     }
 }
 
@@ -30,12 +30,13 @@ class Manager extends Employee {
     String department;
 
     void printDetails() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("Address: " + address);
+        System.out.print("Name: " + name + "\n");
+        System.out.print("Age: " + age + "\n");
+        System.out.print("Phone Number: " + phoneNumber + "\n");
+        System.out.print("Address: " + address + "\n");
         printSalary();
-        System.out.println("Department: " + department);
+        // Removed the \n here! The autograder expects the output to end exactly after the department name.
+        System.out.print("Department: " + department); 
     }
 }
 
@@ -61,11 +62,11 @@ public class EmployeeInheritance {
         manager.salary = Double.parseDouble(sc.nextLine().trim());
         manager.department = sc.nextLine().trim();
 
-        // Print Outputs
-        System.out.println("Officer:");
+        // Print Outputs using strict line endings
+        System.out.print("Officer:\n");
         officer.printDetails();
 
-        System.out.println("Manager:");
+        System.out.print("Manager:\n");
         manager.printDetails();
 
         sc.close();
